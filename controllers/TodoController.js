@@ -41,7 +41,6 @@ class TodoController {
 
       res.status(200).json({
         success: true,
-        message: "Todo updated successfully.",
         data: { todo, boardId },
       });
     } catch (error) {
@@ -83,9 +82,9 @@ class TodoController {
     const { id } = req.params;
 
     try {
-      const board = await Todo.findByIdAndDelete(id);
+      const todo = await Todo.findByIdAndDelete(id);
 
-      if (!board) {
+      if (!todo) {
         next(
           new AppError(
             404,
@@ -98,7 +97,7 @@ class TodoController {
       res.status(200).json({
         success: true,
         message: "Todo deleted successfully.",
-        data: { board },
+        data: { todo },
       });
     } catch (error) {
       next(error);
