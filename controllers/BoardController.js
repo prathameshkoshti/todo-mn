@@ -1,4 +1,5 @@
 const Board = require("../models/Board");
+const Todo = require("../models/Todo");
 const AppError = require("../utils/appError");
 
 class TodoController {
@@ -51,6 +52,7 @@ class TodoController {
 
     try {
       const board = await Board.findByIdAndDelete(id);
+      await Todo.deleteMany({ boardId: id });
 
       if (!board) {
         next(
