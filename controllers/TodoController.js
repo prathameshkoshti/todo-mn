@@ -9,8 +9,8 @@ class TodoController {
 
       if (!desc || desc === "") {
         res.status(400).json({
-          status: "failed",
-          message: "Name is required field.",
+          success: false,
+          message: "Description is required field.",
         });
       }
       const todo = await Todo.create({
