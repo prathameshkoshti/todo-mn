@@ -13,7 +13,7 @@ class TodoController {
       }
 
       res.status(200).json({
-        status: "success",
+        success: true,
         results: boards.length,
         data: { boards },
       });
@@ -28,7 +28,7 @@ class TodoController {
 
       if (!name || name === "") {
         res.status(400).json({
-          status: "failed",
+          success: false,
           message: "Name is required field.",
         });
       }
@@ -63,7 +63,7 @@ class TodoController {
       }
 
       res.status(200).json({
-        status: "success",
+        success: true,
         message: "Board deleted successfully.",
         data: { board },
       });
