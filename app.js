@@ -5,7 +5,6 @@ const hpp = require("hpp");
 const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
 const rateLimit = require("express-rate-limit");
-const globalErrorHandler = require("./controllers/ErrorController");
 
 const app = express();
 
@@ -47,7 +46,5 @@ app.use("/v1", routes);
 app.get("*", (req, res) => {
   res.status(404).send("Resource not found.");
 });
-
-app.use(globalErrorHandler);
 
 module.exports = app;
