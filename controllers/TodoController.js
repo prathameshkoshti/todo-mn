@@ -42,7 +42,7 @@ class TodoController {
       res.status(200).json({
         success: true,
         message: "Todo updated successfully.",
-        data: { todo },
+        data: { todo, boardId },
       });
     } catch (error) {
       next(error);
